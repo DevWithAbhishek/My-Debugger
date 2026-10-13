@@ -1,0 +1,53 @@
+{
+  "name": "ims-service",
+  "version": "0.4.2",
+  "private": true,
+  "description": "Incident Management System API (INTENTIONALLY BROKEN interview fixture - do not deploy)",
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node --import tsx src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "tsx db/migrate.ts",
+    "db:seed": "tsx db/seed.ts",
+    "db:reset": "tsx db/reset.ts",
+    "test": "vitest run",
+    "test:startup": "vitest run tests/integration/startup.test.ts",
+    "test:errors": "vitest run tests/integration/errors.test.ts",
+    "test:readiness": "vitest run tests/integration/readiness.test.ts",
+    "test:shutdown": "vitest run tests/integration/shutdown.test.ts",
+    "test:authn": "vitest run tests/integration/authn.test.ts",
+    "test:authz": "vitest run tests/integration/authz.test.ts",
+    "test:sessions": "vitest run tests/integration/sessions.test.ts",
+    "test:happy": "vitest run tests/integration/happy-path.test.ts tests/unit",
+    "smoke": "node scripts/smoke-test.mjs",
+    "inject:db-outage": "node scripts/inject-db-outage.mjs",
+    "inject:redis-outage": "node scripts/inject-redis-outage.mjs",
+    "check:shutdown": "node scripts/test-graceful-shutdown.mjs",
+    "check:startup": "node scripts/check-startup.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "express": "4.21.2",
+    "ioredis": "5.4.2",
+    "jsonwebtoken": "9.0.2",
+    "pg": "8.13.1",
+    "pino": "9.6.0",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
+    "@types/express": "4.17.21",
+    "@types/jsonwebtoken": "9.0.7",
+    "@types/node": "22.10.7",
+    "@types/pg": "8.11.10",
+    "@types/supertest": "6.0.2",
+    "supertest": "7.0.0",
+    "tsx": "4.19.2",
+    "typescript": "5.7.3",
+    "vitest": "2.1.8"
+  }
+}

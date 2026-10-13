@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+*.log
+# stray unix-socket files can be left behind by crashed dev runs
+/abc
+coverage
