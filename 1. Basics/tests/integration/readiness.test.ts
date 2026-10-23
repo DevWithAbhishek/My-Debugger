@@ -7,7 +7,7 @@ import type { RedisLike } from '../../src/services/redis.js';
 /** A pool whose connectivity can be switched off, to simulate PostgreSQL going away. */
 function switchablePool(real: DbPool) {
   let up = true;
-  const refused = () => Object.assign(new Error('connect ECONNREFUSED 127.0.0.1:5432'), { code: 'ECONNREFUSED' });
+  const refused = () => Object.assign(new Error('connect ECONNREFUSED 127.0.0.1:3002'), { code: 'ECONNREFUSED' });
   const pool: DbPool = {
     query: ((text: string, params?: unknown[]) => (up ? real.query(text, params) : Promise.reject(refused()))) as DbPool['query'],
     end: () => real.end(),

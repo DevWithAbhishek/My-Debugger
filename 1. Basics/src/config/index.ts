@@ -49,7 +49,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
     nodeEnv: e.NODE_ENV,
     port: e.PORT,
     host: e.HOST,
-    databaseUrl: e.DATABASE_URL ?? 'postgres://localhost:5432/ims',
+    databaseUrl: e.DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:3002/imsDebug',
     redisUrl: e.REDIS_URL,
     jwtSecret: e.JWT_SECRET,
     accessTtlSeconds: e.JWT_ACCESS_TTL_SECONDS,

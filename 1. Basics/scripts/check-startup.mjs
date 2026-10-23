@@ -25,7 +25,7 @@ const env = {
   REDIS_URL: process.env.REDIS_URL ?? 'redis://127.0.0.1:6379/0',
   JWT_SECRET: 'local-dev-only-secret-do-not-reuse-0123456789',
 };
-if (which === 'bad-port') env.DATABASE_URL = 'postgres://ims:ims_local_pw@127.0.0.1:5432/ims';
+if (which === 'bad-port') env.DATABASE_URL = "postgresql://postgres:postgres@localhost:3002/imsDebug";
 
 console.log(`starting server with ${which === 'bad-port' ? 'PORT=abc' : 'DATABASE_URL unset'} ...`);
 let out = '';

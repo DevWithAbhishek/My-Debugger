@@ -4,16 +4,16 @@ services:
   postgres:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: ims
-      POSTGRES_PASSWORD: ims_local_pw
-      POSTGRES_DB: ims
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: imsDebug
     ports:
-      - "127.0.0.1:5432:5432"
+      - "3002:5432"
     volumes:
       - ./docker/initdb:/docker-entrypoint-initdb.d:ro
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ims -d ims"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d imsDebug"]
       interval: 3s
       timeout: 3s
       retries: 20

@@ -29,7 +29,7 @@ export function dbUrl(): string {
   if (process.env.ENV_FILE !== 'none' && !process.env.DATABASE_URL) {
     try { process.loadEnvFile(process.env.ENV_FILE ?? '.env'); } catch { /* no .env file */ }
   }
-  return process.env.DATABASE_URL ?? 'postgres://ims:ims_local_pw@127.0.0.1:5432/ims';
+  return process.env.DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:3002/imsDebug';
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

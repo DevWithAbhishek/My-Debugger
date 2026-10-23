@@ -19,7 +19,7 @@ Your task is described in [`ASSIGNMENT.md`](./ASSIGNMENT.md). The intended API b
 ```bash
 npm ci
 cp .env.example .env
-docker compose up -d            # postgres on 127.0.0.1:5432, redis on 127.0.0.1:6379 (creates `ims` and `ims_test` databases)
+docker compose up -d            # postgres on 127.0.0.1:3002, redis on 127.0.0.1:6379 (creates `ims` and `ims_test` databases)
 npm run db:reset                # applies db/migrations and seeds fictional data
 npm start                       # http://127.0.0.1:3000
 npm run smoke                   # in another terminal: happy-path check
